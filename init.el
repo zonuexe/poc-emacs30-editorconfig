@@ -9,6 +9,8 @@
 (unless (require 'editorconfig nil t) (package-install 'editorconfig))
 (unless (require 'php-mode nil t) (package-install 'php-mode))
 
+(debug-on-variable-change 'tab-width)
+
 ;; Disable treesit
 (advice-add #'treesit-available-p :override (lambda () nil))
 
