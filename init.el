@@ -5,7 +5,10 @@
   (setq user-emacs-directory (file-name-directory load-file-name))
   (setq package-user-dir (locate-user-emacs-file "elpa")))
 
-(package-initialize)
+(require 'package)
+(let ((package-archives '(("melpa" . "https://melpa.org/packages/"))))
+  (package-initialize))
+
 (unless (require 'editorconfig nil t) (package-install 'editorconfig))
 (unless (require 'php-mode nil t) (package-install 'php-mode))
 
